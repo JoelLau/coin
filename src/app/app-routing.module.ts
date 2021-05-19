@@ -1,7 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { StackedLayoutComponent } from './layout/stacked-layout/stacked-layout.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  {
+    path: '',
+    component: StackedLayoutComponent,
+  },
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
