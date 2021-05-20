@@ -2,7 +2,8 @@
   <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
     <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
     <a
-      routerLink="/stocks"
+      *ngFor="let menuItem of fetchMenuItems() | async"
+      [routerLink]="menuItem.link"
       routerLinkActive="bg-gray-900 text-white"
       class="
         text-gray-300
@@ -15,7 +16,7 @@
         text-base
         font-medium
       "
-      >Stocks</a
+      >{{ menuItem.title }}</a
     >
   </div>
   <div class="pt-4 pb-3 border-t border-gray-700">

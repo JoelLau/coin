@@ -12,7 +12,8 @@
         <div class="ml-10 flex items-baseline space-x-4">
           <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
           <a
-            routerLink="/stocks"
+            *ngFor="let menuItem of fetchMenuItems() | async"
+            [routerLink]="menuItem.link"
             routerLinkActive="bg-gray-900 text-white"
             class="
               text-gray-300
@@ -24,7 +25,7 @@
               text-sm
               font-medium
             "
-            >Stocks</a
+            >{{ menuItem.title }}</a
           >
         </div>
       </div>
