@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { StocksHomeComponent } from './stocks-home.component';
+import { MobileNavComponent } from './mobile-nav.component';
 
-describe('StocksHomeComponent', () => {
-  let component: StocksHomeComponent;
-  let fixture: ComponentFixture<StocksHomeComponent>;
+describe('MobileNavComponent', () => {
+  let component: MobileNavComponent;
+  let fixture: ComponentFixture<MobileNavComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [StocksHomeComponent],
+      declarations: [MobileNavComponent],
     }).compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(StocksHomeComponent);
+    fixture = TestBed.createComponent(MobileNavComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
