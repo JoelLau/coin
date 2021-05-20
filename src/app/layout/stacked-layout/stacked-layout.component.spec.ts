@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { StackedLayoutComponent } from './stacked-layout.component';
 
 describe('StackedLayoutComponent', () => {
@@ -8,9 +7,8 @@ describe('StackedLayoutComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ StackedLayoutComponent ]
-    })
-    .compileComponents();
+      declarations: [StackedLayoutComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
