@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { StackedLayoutComponent } from './layout/stacked-layout/stacked-layout.component';
 
 const routes: Routes = [
+  { path: '', redirectTo: '/stocks', pathMatch: 'full' },
   {
     path: '',
     component: StackedLayoutComponent,
@@ -14,6 +15,7 @@ const routes: Routes = [
       },
     ],
   },
+  { path: '**', redirectTo: '/stocks', pathMatch: 'full' },
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
