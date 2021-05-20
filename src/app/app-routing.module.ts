@@ -6,9 +6,15 @@ const routes: Routes = [
   {
     path: '',
     component: StackedLayoutComponent,
+    children: [
+      {
+        path: 'stocks',
+        loadChildren: () =>
+          import('./modules/stocks/stocks.module').then((m) => m.StocksModule),
+      },
+    ],
   },
 ];
-
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
