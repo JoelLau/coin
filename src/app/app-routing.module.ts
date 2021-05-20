@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { StackedLayoutComponent } from './layout/stacked-layout/stacked-layout.component';
+import { StackedLayoutComponent } from './layout/components/stacked-layout/stacked-layout.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/stocks', pathMatch: 'full' },
