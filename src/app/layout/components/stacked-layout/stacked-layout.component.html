@@ -1,5 +1,7 @@
 <nav class="bg-gray-800">
   <app-nav></app-nav>
-  <app-mobile-nav class="md:hidden"></app-mobile-nav>
+  <ng-template [appIfScreensize]="'md'">
+    <app-mobile-nav></app-mobile-nav
+  ></ng-template>
+  <router-outlet></router-outlet>
 </nav>
-<router-outlet></router-outlet>
