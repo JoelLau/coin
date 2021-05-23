@@ -8,7 +8,6 @@ import { MenuItem } from '@data/schemas/menu-item';
 })
 export class NavDesktopComponent {
   @Input() menuItems: MenuItem[] = [];
-
   @Input() profileOpenState: boolean = false;
   @Input() mobileMenuOpenState: boolean = false;
 
