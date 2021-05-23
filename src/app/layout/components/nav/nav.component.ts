@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
+import { MenuItems } from '@data/config/defaults/menu-items';
 import { MenuItem } from '@data/schemas/menu-item';
-import { NavMenuService } from '@layout/services/nav-menu.service';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-nav',
@@ -9,9 +8,6 @@ import { Observable } from 'rxjs';
   styleUrls: ['./nav.component.scss'],
 })
 export class NavComponent {
-  constructor(private navMenuService: NavMenuService) {}
-
-  fetchMenuItems(): Observable<MenuItem[]> {
-    return this.navMenuService.fetchMenuItems();
-  }
+  menuItems: MenuItem[] = MenuItems;
+  mobileMenuOpenState: boolean = false;
 }
