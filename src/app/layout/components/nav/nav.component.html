@@ -1,12 +1,14 @@
-<nav class="bg-gray-800">
-  <app-nav-desktop
-    [menuItems]="menuItems"
-    [(mobileMenuOpenState)]="mobileMenuOpenState"
-  ></app-nav-desktop>
-  <ng-template [appIfScreensize]="'md'">
-    <app-nav-mobile
+<div class="relative">
+  <nav class="bg-gray-800 md:block sticky top-0">
+    <app-nav-desktop
       [menuItems]="menuItems"
       [(mobileMenuOpenState)]="mobileMenuOpenState"
-    ></app-nav-mobile>
-  </ng-template>
-</nav>
+    ></app-nav-desktop>
+    <ng-template [appIfScreensize]="'md'">
+      <app-nav-mobile
+        [menuItems]="menuItems"
+        [(mobileMenuOpenState)]="mobileMenuOpenState"
+      ></app-nav-mobile>
+    </ng-template>
+  </nav>
+</div>
