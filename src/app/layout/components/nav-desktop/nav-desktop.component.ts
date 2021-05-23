@@ -8,12 +8,26 @@ import { MenuItem } from '@data/schemas/menu-item';
 })
 export class NavDesktopComponent {
   @Input() menuItems: MenuItem[] = [];
+
+  @Input() profileOpenState: boolean = false;
   @Input() mobileMenuOpenState: boolean = false;
+
+  @Output() profileOpenStateChange: EventEmitter<boolean> =
+    new EventEmitter<boolean>();
   @Output() mobileMenuOpenStateChange: EventEmitter<boolean> =
     new EventEmitter<boolean>();
 
+  onProfileIconClick(): void {
+    this.toggleProfileMenu();
+  }
+
   onMobileMenuButtonClick(): void {
     this.toggleMobileMenu();
+  }
+
+  toggleProfileMenu(): void {
+    this.profileOpenState = !this.profileOpenState;
+    this.profileOpenStateChange.emit(this.profileOpenState);
   }
 
   toggleMobileMenu(): void {

@@ -85,6 +85,7 @@
               id="user-menu-button"
               aria-expanded="false"
               aria-haspopup="true"
+              (click)="onProfileIconClick()"
             >
               <span class="sr-only">Open user menu</span>
               <img
@@ -117,6 +118,7 @@
               ring-1 ring-black ring-opacity-5
               focus:outline-none
             "
+            [ngClass]="profileOpenState ? 'block' : 'hidden'"
             role="menu"
             aria-orientation="vertical"
             aria-labelledby="user-menu-button"
