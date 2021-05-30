@@ -1,11 +1,13 @@
 <div class="relative">
   <nav class="bg-gray-800 md:block sticky top-0">
     <app-nav-desktop
+      data-test="nav-desktop"
       [menuItems]="menuItems"
       [(mobileMenuOpenState)]="mobileMenuOpenState"
     ></app-nav-desktop>
     <ng-template [appIfScreensize]="'md'">
       <app-nav-mobile
+        data-test="nav-mobile"
         [menuItems]="menuItems"
         [(mobileMenuOpenState)]="mobileMenuOpenState"
       ></app-nav-mobile>
