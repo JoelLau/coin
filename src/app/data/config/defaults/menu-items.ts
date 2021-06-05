@@ -1,4 +1,4 @@
-import { MenuItem } from '@data/schemas/menu-item';
+import { MenuItem } from '@layout/schemas/menu-item';
 
 export const MenuItems: MenuItem[] = [
   {

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { MenuItems } from '@data/config/defaults/menu-items';
-import { MenuItem } from '@data/schemas/menu-item';
+import { MenuItem } from '@layout/schemas/menu-item';
 
 @Component({
   selector: 'app-nav',
