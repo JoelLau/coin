@@ -37,7 +37,7 @@ export interface SearchEndpointRawResponseBestMatchItem {
   /**
    * e.g. '0.8889'
    */
-  '9. matchScore': number;
+  '9. matchScore': string;
 }
 
 export type SearchEndPointResponse = SearchEndpointResponseBestMatchItem[];
@@ -65,7 +65,7 @@ export class SearchEndpointResponseBestMatchItem {
       marketClose: rawItem['6. marketClose'],
       timezone: rawItem['7. timezone'],
       currency: rawItem['8. currency'],
-      matchScore: rawItem['9. matchScore'],
+      matchScore: parseFloat(rawItem['9. matchScore']),
     } as SearchEndpointResponseBestMatchItem;
   }
 }
