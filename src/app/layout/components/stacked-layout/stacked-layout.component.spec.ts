@@ -1,3 +1,4 @@
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { StackedLayoutComponent } from './stacked-layout.component';
 
@@ -8,6 +9,7 @@ describe('StackedLayoutComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [StackedLayoutComponent],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
     }).compileComponents();
   });
 

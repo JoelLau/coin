@@ -1,4 +1,4 @@
-import { AlphaVantageApiParameters } from '../alpha-vantage-api/alpha-vantage-api-parameters.schema';
+import { AlphaVantageApiParameters } from './alpha-vantage-api-parameters.schema';
 
 export const SearchEndPointDemos: string[] = ['tesco', 'tencent', 'BA', 'SAIC'];
 export interface SearchEndPointParameters extends AlphaVantageApiParameters {
@@ -53,7 +53,7 @@ export class SearchEndpointResponseBestMatchItem {
   currency: 'USD' | string = '';
   matchScore: number = 0;
 
-  static fromSearchEndpointResponseBestMatchItem(
+  static fromSearchEndpointRawResponseBestMatchItem(
     rawItem: SearchEndpointRawResponseBestMatchItem
   ): SearchEndpointResponseBestMatchItem {
     return {

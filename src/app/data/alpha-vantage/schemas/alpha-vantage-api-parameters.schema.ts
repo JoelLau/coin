@@ -18,4 +18,7 @@ export interface AlphaVantageApiParameters {
   [key: string]: any;
 }
 
-export type AlphaVantageApiParameterFunction = 'SYMBOL_SEARCH';
+export type AlphaVantageApiParameterFunction =
+  | 'SYMBOL_SEARCH'
+  | 'GLOBAL_QUOTE'
+  | string;

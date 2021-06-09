@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { AlphaVantageApiParameters } from './alpha-vantage-api-parameters.schema';
+import { AlphaVantageApiParameters } from '../../schemas/alpha-vantage-api-parameters.schema';
 
 @Injectable({
   providedIn: 'root',
@@ -30,3 +30,5 @@ export class AlphaVantageApiService {
     return params;
   }
 }
+
+export const ALPHA_VANTAGE_DEMO_KEY: string = 'demo';

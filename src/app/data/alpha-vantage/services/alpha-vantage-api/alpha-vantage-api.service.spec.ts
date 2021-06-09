@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 import { of } from 'rxjs';
-import { AlphaVantageApiParameters } from './alpha-vantage-api-parameters.schema';
+import { AlphaVantageApiParameters } from '../../schemas/alpha-vantage-api-parameters.schema';
 import { AlphaVantageApiService } from './alpha-vantage-api.service';
 
 describe('AlphaVantageApiService', () => {
