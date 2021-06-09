@@ -2,10 +2,10 @@ import { HttpClient } from '@angular/common/http';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 import { of } from 'rxjs';
-import { AlphaVantageApiParameters } from './alpha-vantage-api-parameters';
+import { AlphaVantageApiParameters } from './alpha-vantage-api-parameters.schema';
 import { AlphaVantageApiService } from './alpha-vantage-api.service';
 
-fdescribe('AlphaVantageApiService', () => {
+describe('AlphaVantageApiService', () => {
   let service: AlphaVantageApiService;
 
   beforeEach(() => {
@@ -26,7 +26,7 @@ fdescribe('AlphaVantageApiService', () => {
   });
 
   it("should provide 'apikey' if not supplied", () => {
-    const params: AlphaVantageApiParameters = { ffunction: 'SYMBOL_SEARCH' };
+    const params: AlphaVantageApiParameters = { function: 'SYMBOL_SEARCH' };
     const queryParams = service.getQueryParameters(params);
     const { apikey } = queryParams;
 
@@ -35,7 +35,7 @@ fdescribe('AlphaVantageApiService', () => {
 
   it("should NOT override 'apikey' if it IS supplied", () => {
     const params: AlphaVantageApiParameters = {
-      ffunction: 'SYMBOL_SEARCH',
+      function: 'SYMBOL_SEARCH',
       apikey: 'asdf',
     };
     const queryParams = service.getQueryParameters(params);
@@ -51,7 +51,7 @@ fdescribe('AlphaVantageApiService', () => {
       of(null)
     );
     const params: AlphaVantageApiParameters = {
-      ffunction: 'SYMBOL_SEARCH',
+      function: 'SYMBOL_SEARCH',
       keywords: 'microsoft',
       apikey: 'demo',
     };

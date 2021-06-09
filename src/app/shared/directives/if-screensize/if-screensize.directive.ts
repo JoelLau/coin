@@ -59,12 +59,6 @@ export class IfScreensizeDirective implements OnInit, OnDestroy {
   }
 
   toggleContents(windowInnerWidth: number, inputMinWidth: number): void {
-    console.log(
-      `inputMinWidth(${inputMinWidth}) >= windowInnerWidth(${windowInnerWidth}): ${
-        inputMinWidth >= windowInnerWidth
-      }`
-    );
-
     this.viewContainerRef.clear();
     if (inputMinWidth >= windowInnerWidth) {
       this.viewContainerRef.createEmbeddedView(this.templateRef);

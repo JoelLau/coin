@@ -5,7 +5,7 @@ export interface AlphaVantageApiParameters {
   /**
    * function is a reserved keyword in ES6
    */
-  ffunction: AlphaVantageApiParameterFunction;
+  function: AlphaVantageApiParameterFunction;
 
   /**
    * override provided api key
