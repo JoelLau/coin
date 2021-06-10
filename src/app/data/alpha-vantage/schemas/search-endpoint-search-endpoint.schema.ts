@@ -1,14 +1,14 @@
 import { AlphaVantageApiParameters } from './alpha-vantage-api-parameters.schema';
 
-export const SearchEndPointDemos: string[] = ['tesco', 'tencent', 'BA', 'SAIC'];
-export interface SearchEndPointParameters extends AlphaVantageApiParameters {
+export const SearchEndpointDemos: string[] = ['tesco', 'tencent', 'BA', 'SAIC'];
+export interface SearchEndpointParameters extends AlphaVantageApiParameters {
   function: 'SYMBOL_SEARCH';
   keywords: string;
   datatype?: 'json' | 'csv';
   apikey?: string;
 }
 
-export interface SearchEndPointRawResponse {
+export interface SearchEndpointRawResponse {
   bestMatches: SearchEndpointRawResponseBestMatchItem[];
 }
 
@@ -40,7 +40,7 @@ export interface SearchEndpointRawResponseBestMatchItem {
   '9. matchScore': string;
 }
 
-export type SearchEndPointResponse = SearchEndpointResponseBestMatchItem[];
+export type SearchEndpointResponse = SearchEndpointResponseBestMatchItem[];
 
 export class SearchEndpointResponseBestMatchItem {
   symbol: string = '';

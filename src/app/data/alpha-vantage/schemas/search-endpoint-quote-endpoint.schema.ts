@@ -1,14 +1,14 @@
 import { AlphaVantageApiParameters } from './alpha-vantage-api-parameters.schema';
 
-export const QuoteEndPointDemos: string[] = ['IBM', '300135.SHZ'];
-export interface QuoteEndPointParameters extends AlphaVantageApiParameters {
+export const QuoteEndpointDemos: string[] = ['IBM', '300135.SHZ'];
+export interface QuoteEndpointParameters extends AlphaVantageApiParameters {
   function: 'GLOBAL_QUOTE';
   symbol: string;
   datatype?: 'json' | 'csv';
   apikey?: string;
 }
 
-export interface QuoteEndPointRawResponse {
+export interface QuoteEndpointRawResponse {
   'Global Quote': QuoteEndpointRawResponseGlobalQuote;
 }
 

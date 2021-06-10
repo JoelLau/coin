@@ -1,7 +1,8 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
-import { QuoteEndPointParameters } from '@data/alpha-vantage/schemas/search-endpoint-quote-endpoint.schema';
-import { SearchEndPointParameters } from '@data/alpha-vantage/schemas/search-endpoint-search-endpoint.schema';
+import { IntradayParameters } from '@data/alpha-vantage/schemas/search-endpoint-intraday.schema';
+import { QuoteEndpointParameters } from '@data/alpha-vantage/schemas/search-endpoint-quote-endpoint.schema';
+import { SearchEndpointParameters } from '@data/alpha-vantage/schemas/search-endpoint-search-endpoint.schema';
 import { of } from 'rxjs';
 import { AlphaVantageApiService } from '../alpha-vantage-api/alpha-vantage-api.service';
 import { StockTimeSeriesService } from './stock-time-series.service';
@@ -23,7 +24,7 @@ describe('StockTimeSeriesService', () => {
     expect(stockTimeSeriesService).toBeTruthy();
   });
 
-  describe('searchEndPoint', () => {
+  describe('searchEndpoint', () => {
     it('should call correctly with string params', () => {
       // arrange
       const params: string = 'microsoft';
@@ -32,7 +33,7 @@ describe('StockTimeSeriesService', () => {
       );
 
       //act
-      stockTimeSeriesService.searchEndPoint(params).subscribe();
+      stockTimeSeriesService.searchEndpoint(params).subscribe();
 
       //assert
       expect(querySpy).toHaveBeenCalledWith({
@@ -43,7 +44,7 @@ describe('StockTimeSeriesService', () => {
 
     it('should call correctly with obj params', () => {
       // arrange
-      const params: SearchEndPointParameters = {
+      const params: SearchEndpointParameters = {
         function: 'SYMBOL_SEARCH',
         keywords: 'microsoft',
       };
@@ -52,7 +53,7 @@ describe('StockTimeSeriesService', () => {
       );
 
       //act
-      stockTimeSeriesService.searchEndPoint(params).subscribe();
+      stockTimeSeriesService.searchEndpoint(params).subscribe();
 
       //assert
       expect(querySpy).toHaveBeenCalledWith({
@@ -63,7 +64,7 @@ describe('StockTimeSeriesService', () => {
 
     it('[integration test] raw responses should be mapped correctly', () => {
       // arrange
-      const params: SearchEndPointParameters = {
+      const params: SearchEndpointParameters = {
         function: 'SYMBOL_SEARCH',
         keywords: 'microsoft',
       };
@@ -87,7 +88,7 @@ describe('StockTimeSeriesService', () => {
 
       //act
       stockTimeSeriesService
-        .searchEndPoint(params)
+        .searchEndpoint(params)
         .subscribe((actualResponse) => {
           //assert
           expect(actualResponse).toEqual([
@@ -107,7 +108,7 @@ describe('StockTimeSeriesService', () => {
     });
   });
 
-  describe('quoteEndPoint', () => {
+  describe('quoteEndpoint', () => {
     it('should call correctly with string params ', () => {
       // arrange
       const params: string = 'IBM';
@@ -129,7 +130,7 @@ describe('StockTimeSeriesService', () => {
       );
 
       //act
-      stockTimeSeriesService.quoteEndPoint(params).subscribe();
+      stockTimeSeriesService.quoteEndpoint(params).subscribe();
 
       //assert
       expect(querySpy).toHaveBeenCalledWith({
@@ -140,7 +141,7 @@ describe('StockTimeSeriesService', () => {
 
     it('should call correctly with object params', () => {
       // arrange
-      const params: QuoteEndPointParameters = {
+      const params: QuoteEndpointParameters = {
         function: 'GLOBAL_QUOTE',
         symbol: 'IBM',
       };
@@ -162,7 +163,7 @@ describe('StockTimeSeriesService', () => {
       );
 
       //act
-      stockTimeSeriesService.quoteEndPoint(params).subscribe();
+      stockTimeSeriesService.quoteEndpoint(params).subscribe();
 
       //assert
       expect(querySpy).toHaveBeenCalledWith({
@@ -173,7 +174,7 @@ describe('StockTimeSeriesService', () => {
 
     it('[integration test] raw responses should be mapped correctly ', () => {
       // arrange
-      const params: QuoteEndPointParameters = {
+      const params: QuoteEndpointParameters = {
         function: 'GLOBAL_QUOTE',
         symbol: 'IBM',
       };
@@ -196,7 +197,7 @@ describe('StockTimeSeriesService', () => {
 
       //act
       stockTimeSeriesService
-        .quoteEndPoint(params)
+        .quoteEndpoint(params)
         .subscribe((actualResponse) => {
           //assert
           expect(actualResponse).toEqual({
@@ -212,6 +213,64 @@ describe('StockTimeSeriesService', () => {
             changePercent: 0.7094,
           });
         });
+    });
+  });
+
+  describe('intraday', () => {
+    it('[integration test] raw responses should be mapped correctly  ', () => {
+      // arrange
+      const params: IntradayParameters = {
+        function: 'TIME_SERIES_INTRADAY',
+        symbol: 'IBM',
+        interval: '5min',
+      };
+      spyOn(alphaVantageApiService, 'query').and.returnValue(
+        of({
+          'Meta Data': {
+            '1. Information':
+              'Intraday (5min) open, high, low, close prices and volume',
+            '2. Symbol': 'IBM',
+            '3. Last Refreshed': '2021-06-08 19:05:00',
+            '4. Interval': '5min',
+            '5. Output Size': 'Compact',
+            '6. Time Zone': 'US/Eastern',
+          },
+          'Time Series (5min)': {
+            '2021-06-08 19:05:00': {
+              '1. open': '149.4000',
+              '2. high': '149.4000',
+              '3. low': '149.4000',
+              '4. close': '149.4000',
+              '5. volume': '1002',
+            },
+          },
+        })
+      );
+
+      //act
+      stockTimeSeriesService.intraday(params).subscribe((actualResponse) => {
+        //assert
+        expect(actualResponse).toEqual({
+          metaData: {
+            information:
+              'Intraday (5min) open, high, low, close prices and volume',
+            symbol: 'IBM',
+            lastRefreshed: '2021-06-08 19:05:00',
+            interval: '5min',
+            outputSize: 'compact',
+            timeZone: 'US/Eastern',
+          },
+          timeSeries: {
+            '2021-06-08 19:05:00': {
+              open: 149.4,
+              high: 149.4,
+              low: 149.4,
+              close: 149.4,
+              volume: 1002,
+            },
+          },
+        });
+      });
     });
   });
 });
