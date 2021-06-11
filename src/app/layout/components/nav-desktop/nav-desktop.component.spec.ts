@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { NavDesktopComponent } from './nav-desktop.component';
 
 describe('NavDesktopComponent', () => {
@@ -8,9 +7,8 @@ describe('NavDesktopComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NavDesktopComponent ]
-    })
-    .compileComponents();
+      declarations: [NavDesktopComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

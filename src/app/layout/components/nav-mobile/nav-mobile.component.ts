@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { MenuItem } from '@data/schemas/menu-item';
+import { MenuItem } from '@layout/schemas/menu-item';
 
 @Component({
   selector: 'app-nav-mobile',
