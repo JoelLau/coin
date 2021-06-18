@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { StocksHomeHeaderComponent } from './stocks-home-header.component';
 
 describe('StocksHomeHeaderComponent', () => {
@@ -8,9 +7,8 @@ describe('StocksHomeHeaderComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ StocksHomeHeaderComponent ]
-    })
-    .compileComponents();
+      declarations: [StocksHomeHeaderComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
