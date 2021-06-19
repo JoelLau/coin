@@ -1,16 +1,14 @@
 import { Component } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { StocksHomeHeaderFields } from './stocks-home-header/stocks-home-header.component';
+import { StockQuoteHeaderSectionFields } from './stock-quote-header-section/stock-quote-header-section.component';
 
 @Component({
-  selector: 'app-stocks-home',
-  templateUrl: './stocks-home.component.html',
-  styleUrls: ['./stocks-home.component.scss'],
+  selector: 'app-stock-quote',
+  templateUrl: './stock-quote.component.html',
+  styleUrls: ['./stock-quote.component.scss'],
 })
-export class StocksHomeComponent {
-  constructor() {}
-
-  getStock(): Observable<StocksHomeHeaderFields> {
+export class StockQuoteComponent {
+  getStock(): Observable<StockQuoteHeaderSectionFields> {
     return of({
       symbol: 'AAPL',
       companyName: 'Apple Inc',
