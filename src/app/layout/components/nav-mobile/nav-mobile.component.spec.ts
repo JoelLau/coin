@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { NavMobileComponent } from './nav-mobile.component';
 
 describe('NavMobileComponent', () => {
@@ -8,9 +7,8 @@ describe('NavMobileComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NavMobileComponent ]
-    })
-    .compileComponents();
+      declarations: [NavMobileComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

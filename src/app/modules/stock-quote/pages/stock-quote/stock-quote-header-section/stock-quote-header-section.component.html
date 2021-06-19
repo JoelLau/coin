@@ -1,0 +1,39 @@
+<header *ngIf="fields">
+  <h2 title="symbol">
+    {{ fields.symbol }}
+  </h2>
+  <h1
+    class="text-2xl leading-6 mb-1"
+    title="company name"
+    style="margin-left: -0.25%"
+  >
+    {{ fields.companyName }}
+  </h1>
+  <h3 class="inline-block mr-4" style="margin-left: -0.6%">
+    <span class="text-5xl font-bold mr-0.5" title="open">{{
+      fields.open
+    }}</span>
+    <span class="font-bold" title="currency">{{ fields.currency }}</span>
+  </h3>
+  <ul class="mt-0 text-gray-600 inline-flex">
+    <li class="mr-2" title="change">
+      {{ fields.change > 0 ? "+" : "" }}{{ fields.change | currency: "":"" }}
+    </li>
+    <li class="mr-2" title="change percent">
+      {{ fields.changePercent | number: "1.2" | positiveNegativeSymbol }}%
+    </li>
+  </ul>
+  <ul class="mt-2 text-gray-600">
+    <ul class="mb-0.25">
+      <li class="mr-2" title="exchange">
+        {{ fields.exchange }}
+      </li>
+      <li class="mr-2" title="country">
+        {{ fields.country }}
+      </li>
+    </ul>
+    <li class="mr-2" title="latest trading day">
+      Closed: {{ fields.latestTradingDay | date: "MMM d, h:mma zzzz" }}
+    </li>
+  </ul>
+</header>

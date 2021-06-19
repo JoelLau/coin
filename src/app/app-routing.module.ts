@@ -11,7 +11,9 @@ const routes: Routes = [
       {
         path: 'stocks',
         loadChildren: () =>
-          import('./modules/stocks/stocks.module').then((m) => m.StocksModule),
+          import('./modules/stock-quote/stock-quote.module').then(
+            (m) => m.StockQuoteModule
+          ),
       },
     ],
   },
